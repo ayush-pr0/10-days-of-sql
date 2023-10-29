@@ -1,5 +1,5 @@
-select c.name as 'Customers'
-from customers c
-left join orders o
-on c.id = o.customerId
-where o.customerId is NULL;
+-- Select customers who have not placed any orders
+SELECT c.name AS 'Customers Without Orders'
+FROM customers c
+LEFT JOIN orders o ON c.id = o.customerId
+WHERE o.customerId IS NULL;
