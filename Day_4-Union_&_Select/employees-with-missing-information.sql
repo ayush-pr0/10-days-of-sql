@@ -1,12 +1,16 @@
-select e.employee_id from employees e
-left join salaries
-using(employee_id)
-where salary is null
+-- Select employee_id values where salary is null from the "employees" table
+SELECT e.employee_id
+FROM employees e
+LEFT JOIN salaries
+USING (employee_id)
+WHERE salary IS NULL
 
-union
+UNION
 
-select s.employee_id from employees
-right join salaries s
-using(employee_id)
-where name is null
-order by 1;
+-- Select employee_id values where name is null from the "salaries" table
+SELECT s.employee_id
+FROM employees
+RIGHT JOIN salaries s
+USING (employee_id)
+WHERE name IS NULL
+ORDER BY 1;
