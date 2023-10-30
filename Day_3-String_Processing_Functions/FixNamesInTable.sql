@@ -1,4 +1,5 @@
-select user_id, 
-       concat(ucase(left(name, 1)), lcase(substr(name, 2, length(name) - 1))) as name
-from users
-order by user_id;
+-- Select user_id and format the name with an initial uppercase letter and the rest in lowercase
+SELECT user_id, 
+       CONCAT(UCASE(LEFT(name, 1)), LCASE(SUBSTR(name, 2))) AS name
+FROM users
+ORDER BY user_id;

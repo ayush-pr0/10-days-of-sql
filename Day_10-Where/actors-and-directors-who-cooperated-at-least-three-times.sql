@@ -1,5 +1,9 @@
-select actor_id, director_id
-from (select actor_id, director_id, count(timestamp) as cnt
-      from actordirector
-      group by actor_id, director_id) as tab
-where cnt > 2;
+-- Select actor_id and director_id pairs where the count of timestamps is greater than 2
+SELECT actor_id, director_id
+FROM (
+    -- Subquery to count timestamps for each actor-director pair
+    SELECT actor_id, director_id, COUNT(timestamp) AS cnt
+    FROM actordirector
+    GROUP BY actor_id, director_id
+) AS tab
+WHERE cnt > 2;
